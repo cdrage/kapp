@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Kedge : Simple, Concise & Declarative Kubernetes Applications
 
 [![Build Status Widget]][Build Status] [![Coverage Status Widget]][Coverage Status] [![GoDoc Widget]][GoDoc] [![GoReportCard Widget]][GoReportCardResult] [![Slack Widget]][Slack] 
@@ -141,3 +142,12 @@ Unless otherwise stated (ex. `/vendor` files), all code is licensed under the [A
 [Bintray Latest Windows]:https://dl.bintray.com/kedgeproject/kedge/latest/kedge-windows-amd64.exe
 [GoReportCard Widget]: https://goreportcard.com/badge/github.com/kedgeproject/kedge
 [GoReportCardResult]: https://goreportcard.com/report/github.com/kedgeproject/kedge
+=======
+# minimal
+
+[![screenshot](img/minimal-jekyll.png)](img/minimal-jekyll.png)
+
+Super minimal theme for Jekyll.
+
+Original fork from [https://github.com/GochoMugo/minimal-jekyll](https://github.com/GochoMugo/minimal-jekyll). Based on [https://github.com/orderedlist/minimal](https://github.com/orderedlist/minimal).
+>>>>>>> Adds Kedge website

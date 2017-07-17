@@ -1,11 +1,24 @@
+<<<<<<< HEAD
+=======
+---
+layout: default
+permalink: /user-guide/
+redirect_from: "/docs/user-guide.md"
+---
+
+>>>>>>> Adds Kedge website
 # User Guide
 
 - CLI
   - [`create`](#kedge-create)
   - [`generate`](#kedge-generate)
+<<<<<<< HEAD
   - [`delete`](#kedge-delete)
   - [`version`](#kedge-version)  
   - [`init`](#kedge-init)
+=======
+  - [`version`](#kedge-version)
+>>>>>>> Adds Kedge website
 
 ## `kedge create`
 
@@ -80,6 +93,7 @@ deployment "httpd" created
 service "httpd" created
 ```
 
+<<<<<<< HEAD
 ## `kedge delete`
 
 Deletes Kubernetes artifacts
@@ -89,6 +103,8 @@ $ kedge delete -f httpd.yaml
 deployment "httpd" deleted
 service "httpd" deleted
 ```
+=======
+>>>>>>> Adds Kedge website
 ## `kedge version`
 
 Outputs the current Kedge version
@@ -98,6 +114,7 @@ Outputs the current Kedge version
 ```sh
 kedge version
 ```
+<<<<<<< HEAD
 
 ## `kedge init`
 
@@ -106,3 +123,5 @@ Initialize kedge file
 ```sh
 kedge init --file kedge.yml --name web --image centos/httpd --port 80
 ```
+=======
+>>>>>>> Adds Kedge website

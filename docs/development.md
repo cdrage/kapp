@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+=======
+---
+layout: default
+permalink: /development/
+redirect_from: "/docs/architecture.md"
+---
+
+>>>>>>> Adds Kedge website
 # Development Guide
 
 ## Building Kedge
@@ -81,6 +90,7 @@ glide-vc -h
 ### Using glide
 
 #### Adding new dependency
+<<<<<<< HEAD
 
 1. Update `glide.yaml` file
 
@@ -105,10 +115,22 @@ glide-vc --only-code --no-tests --use-lock-file
 git add glide.yaml glide.lock vendor
 git commit
 ```
+=======
+1. Update `glide.yml` file.
+
+  Add new packages or subpackages to `glide.yml` depending if you added whole new package as dependency or
+  just new subpackage.
+
+2. Run `glide update --strip-vendor` to get new dependencies.
+   Than run `glide-vc --only-code --no-tests` to delete all unnecessary files from vendor.
+
+3. Commit updated `glide.yml`, `glide.lock` and `vendor` to git.
+>>>>>>> Adds Kedge website
 
 
 #### Updating dependencies
 
+<<<<<<< HEAD
 1. Set new package version in  `glide.yaml` file.
 
 2. Clear cache
@@ -136,6 +158,13 @@ glide-vc --only-code --no-tests --use-lock-file
 git add glide.yaml glide.lock vendor
 git commit
 ```
+=======
+1. Set new package version in  `glide.yml` file.
+
+2. Run `glide update --strip-vendor` to update dependencies.
+   Than run `glide-vc --only-code --no-tests` to delete all unnecessary files from vendor.
+
+>>>>>>> Adds Kedge website
 
 ### PR review guidelines
 
@@ -151,6 +180,7 @@ by one incrementally so that it is easy to review and going back and forth on
 it is easier.
 
 **Note**: Above guidelines are not hard rules use those with discretion
+<<<<<<< HEAD
 
 ### Running tests
 
@@ -353,3 +383,5 @@ pkgcmd "github.com/kedgeproject/kedge/pkg/cmd"
 ```
 
 Once arranged, let `gofmt` sort the sequence of imports.
+=======
+>>>>>>> Adds Kedge website

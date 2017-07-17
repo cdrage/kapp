@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-=======
 ---
 layout: default
-permalink: /quickstart/
-redirect_from: "/docs/quickstart.md"
 ---
 
->>>>>>> Adds Kedge website
 # Kedge - Concise Application Definitions for Kubernetes
 
 Simplify your Kubernetes deployment by using Kedge. Reduce your technical debt by investing in a simple and concise definition!

@@ -1,13 +1,28 @@
+<<<<<<< HEAD
 # Kedge file reference
 
 Each file defines one micro-service, which forms one `pod` controlled by it's
 controller.
+=======
+---
+layout: default
+permalink: /file-reference/
+redirect_from: "/docs/file-reference.md"
+---
+
+# Kedge file reference
+
+Each file defines one micro-service, which forms one `pod` controlled by it's
+controller(right now the default controller is `deployment`).
+
+>>>>>>> Adds Kedge website
 
 A example using all the keys added in Kedge(not all keys from Kubernetes
 API are included):
 
 ```yaml
 name: database
+<<<<<<< HEAD
 controller: deployment
 containers:
 - image: mariadb:10
@@ -16,6 +31,19 @@ containers:
       name: database
   - secretRef:
       name: wordpress
+=======
+containers:
+- image: mariadb:10
+  env:
+  - name: MYSQL_ROOT_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: wordpress
+        key: MYSQL_ROOT_PASSWORD
+  envFrom:
+  - configMapRef:
+      name: database
+>>>>>>> Adds Kedge website
   volumeMounts:
   - name: database
     mountPath: /var/lib/mysql
@@ -35,10 +63,13 @@ volumeClaims:
 configMaps:
 - data:
     MYSQL_DATABASE: wordpress
+<<<<<<< HEAD
 secrets:
 - name: wordpress
   data:
     MYSQL_ROOT_PASSWORD: YWRtaW4=
+=======
+>>>>>>> Adds Kedge website
 ```
 
 # Root level constructs
@@ -57,6 +88,7 @@ More info: https://kubernetes.io/docs/api-reference/v1.6/#podspec-v1-core
 
 The name of the app or micro-service this particular file defines.
 
+<<<<<<< HEAD
 ## controller
 
 `controller: deployment`
@@ -84,6 +116,19 @@ pod.
 To populate a pod's `activeDeadlineSeconds`, the user will have to pass this
 field the long way by defining the pod exclusively under
 `job.spec.template.spec.activeDeadlineSeconds`.
+=======
+## replicas
+
+`replicas: 4`
+
+| **Type** | **Required** |
+|----------|--------------|
+| integer  | no           |
+
+Number of desired pods. This is a pointer to distinguish between explicit zero
+and not specified. Defaults to 1. The valid value can only be a positive number.
+This is an optional field.
+>>>>>>> Adds Kedge website
 
 
 ## labels
@@ -136,6 +181,7 @@ simultaneously then the tool will error out.
 envFrom:
 - configMapRef:
     name: <string>
+<<<<<<< HEAD
 - secretRef:
     name: <string>
 ```
@@ -146,6 +192,19 @@ as `env` inside the container.
 
 The restriction is that the ConfigMaps and Secrets also have to be defined in the
 file since there is no way to get the data to be populated.
+=======
+```
+
+This is similar to the envFrom field in container which is added since Kubernetes
+1.6. `envFrom` is a list of references. Right now the only reference that is
+supported is of `configMap`. The `configMap` that you refer here, all the data
+from that `configMap` will be populated as `env` inside the container.
+
+The restriction being that the `configMap` also has to be defined in the file.
+If the `configMap` is not defined in the file under the root level field called
+`configMaps`, the tool will throw an error, since it has no way of knowing
+from where to populate the environment variables from.
+>>>>>>> Adds Kedge website
 
 To read more about this field from the Kubernetes upstream docs see this:
 https://kubernetes.io/docs/api-reference/v1.6/#envfromsource-v1-core
@@ -263,7 +322,11 @@ configMaps:
 |----------------------------------|--------------|
 | array of [configMap](#configMap) | no           |
 
+<<<<<<< HEAD
 ### configMap
+=======
+###configMap
+>>>>>>> Adds Kedge website
 
 ```yaml
 name: string
@@ -322,8 +385,11 @@ name: <string>
 ports:
 - port: <int>
   endpoint: <URL>/<Path>
+<<<<<<< HEAD
 portMappings:
 - <port>:<targetPort>/<protocol>
+=======
+>>>>>>> Adds Kedge website
 <Kubernetes Service Spec>
 ```
 
@@ -336,6 +402,10 @@ name: wordpress
 ports:
 - port: 8080
   targetPort: 80
+<<<<<<< HEAD
+=======
+
+>>>>>>> Adds Kedge website
 ```
 
 Each service gets converted into a Kubernetes `service` and `ingress`es
@@ -362,6 +432,7 @@ of `service`.
 `endpoint` the way it is defined is can actually can be divided into
 two parts the `URL` and `Path`, it is delimited by a forward slash.
 
+<<<<<<< HEAD
 #### portMappings
 ```yaml
 portMappings:
@@ -388,6 +459,8 @@ There are 4 possible cases here
 - When `port:targetPort/protocol` is specified - no auto population is done since all values are provided
 
 Find a working example using `portMappings` field [here](https://github.com/kedgeproject/kedge/tree/master/docs/examples/portMappings/httpd.yaml)
+=======
+>>>>>>> Adds Kedge website
 
 ## ingresses
 
@@ -443,6 +516,7 @@ More info about Probe: https://kubernetes.io/docs/api-reference/v1.6/#probe-v1-c
 
 The name of the Ingress.
 
+<<<<<<< HEAD
 ## secrets
 
 ```yaml
@@ -524,16 +598,31 @@ This is one of the mechanisms to extend kedge beyond its capabilites to support
 anything in the Kubernetes land.
 
 ## Complete example (deployment)
+=======
+## Complete example
+>>>>>>> Adds Kedge website
 
 ```yaml
 name: database
 containers:
 - image: mariadb:10
+<<<<<<< HEAD
   envFrom:
   - configMapRef:
       name: database
   - secretRef:
       name: wordpress
+=======
+  env:
+  - name: MYSQL_ROOT_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: wordpress
+        key: MYSQL_ROOT_PASSWORD
+  envFrom:
+  - configMapRef:
+      name: database
+>>>>>>> Adds Kedge website
   volumeMounts:
   - name: database
     mountPath: /var/lib/mysql
@@ -573,6 +662,7 @@ volumeClaims:
 configMaps:
 - data:
     MYSQL_DATABASE: wordpress
+<<<<<<< HEAD
 secrets:
 - name: wordpress
   data:
@@ -590,3 +680,6 @@ containers:
 restartPolicy: Never
 parallelism: 3
 ```
+=======
+```
+>>>>>>> Adds Kedge website

@@ -21,7 +21,7 @@ start_k8s() {
   # https://github.com/kubernetes/minikube
   # Thus we are using a public docker image
 
-  IMAGE=calpicow/localkube-image:v1.5.3
+  IMAGE=calpicow/localkube-image:k8s-v1.7
 
   docker run -d \
       --volume=/:/rootfs:ro \

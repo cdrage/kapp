@@ -6,6 +6,8 @@
 kedge
 bin
 
+_site/
+
 #
 # GO SPECIFIC
 #

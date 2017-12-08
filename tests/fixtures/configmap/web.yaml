@@ -1,8 +1,7 @@
 name: web
 replicas: 1
-
 containers:
-- image: nginx:1.13
+- image: wordpress:4
   env:
   - name: WORDPRESS_DB_PASSWORD
     value: wordpress
@@ -18,14 +17,12 @@ containers:
       configMapKeyRef:
         key: WORDPRESS_DB_HOST
         name: web
-
 services:
 - name: wordpress
   type: NodePort
   ports:
   - port: 8080
     targetPort: 80
-
 configMaps:
 - data:
     WORDPRESS_DB_NAME: wordpress
